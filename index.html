@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tribunal das Reuniões</title>
+  <!-- Open Graph / Social preview -->
+  <meta property="og:title" content="Tribunal das Reuniões" />
+  <meta property="og:description" content="Descubra se sua reunião merece existir." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://via.placeholder.com/1200x630.png?text=Tribunal+das+Reuni%C3%B5es" />
+  <meta property="og:url" content="https://pindinti.github.io/tribunaldasreunioes/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#0f1216" />
+  <!-- Google Analytics 4: altere G-XXXXXXXXXX para seu Measurement ID -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LMDZNQNQXD"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){window.dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-LMDZNQNQXD', { send_page_view: false });
+  </script>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="page-shell">
+    <section class="hero">
+      <h1>⚖️ Tribunal das Reuniões</h1>
+      <p>Transforme uma reunião em um veredicto satírico.</p>
+    </section>
+
+    <section class="card form-card">
+      <form id="meeting-form">
+        <!-- Título da reunião -->
+        <div class="field-group">
+          <label for="meeting-title">Título da reunião</label>
+          <input id="meeting-title" name="meetingTitle" type="text" maxlength="120" placeholder="Ex: Weekly Sync com o time" />
+        </div>
+
+        <!-- Duração -->
+        <div class="field-group">
+          <label>Duração</label>
+          <div class="button-group">
+            <button type="button" class="duration-btn" data-value="15">15 min</button>
+            <button type="button" class="duration-btn" data-value="30">30 min</button>
+            <button type="button" class="duration-btn" data-value="45">45 min</button>
+            <button type="button" class="duration-btn" data-value="60">60 min</button>
+            <button type="button" class="duration-btn" data-value="90">90 min+</button>
+          </div>
+          <input id="duration-value" name="durationMinutes" type="hidden" value="30" />
+        </div>
+
+        <!-- Tipo de reunião -->
+        <div class="field-group">
+          <label>Tipo de reunião</label>
+          <div class="button-group">
+            <button type="button" class="meeting-type-btn" data-type="Update">Update</button>
+            <button type="button" class="meeting-type-btn" data-type="Decisão">Decisão</button>
+            <button type="button" class="meeting-type-btn" data-type="Brainstorm">Brainstorm</button>
+            <button type="button" class="meeting-type-btn" data-type="Apresentação">Apresentação</button>
+            <button type="button" class="meeting-type-btn" data-type="Alinhamento">Alinhamento</button>
+          </div>
+          <input id="meeting-type-value" name="meetingType" type="hidden" value="Update" />
+        </div>
+
+        <!-- Características -->
+        <div class="field-group">
+          <label>O que rolou</label>
+          <div class="chips-group">
+            <button type="button" class="chip" data-trait="email">
+              Virou e-mail disfarçado
+            </button>
+            <button type="button" class="chip" data-trait="followups">
+              Saiu mais reunião que decisão
+            </button>
+            <button type="button" class="chip" data-trait="buzzwords">
+              Teve muito “vamos alinhar”
+            </button>
+            <button type="button" class="chip" data-trait="slides">
+              Teve slide demais, conteúdo de menos
+            </button>
+            <button type="button" class="chip" data-trait="circleback">
+              Disseram “rapidinho” e mentiram
+            </button>
+            <button type="button" class="chip" data-trait="boss">
+              O chefe apareceu
+            </button>
+          </div>
+          <input id="traits-value" name="traits" type="hidden" value="" />
+        </div>
+
+        <button type="submit" class="primary-button">⚖️ Julgar esta reunião</button>
+      </form>
+    </section>
+
+    <section class="card result-card hidden" id="result-card">
+      <div class="result-header">
+        <div>
+          <h2 class="result-title">⚖️ Tribunal das Reuniões</h2>
+          <span class="case-number" id="case-number">Caso #000</span>
+        </div>
+        <span class="badge" id="result-badge">Badge</span>
+      </div>
+
+      <div class="crime-verdict-container">
+        <div class="crime-section">
+          <p class="section-label">Crime</p>
+          <h3 id="result-crime">Crime</h3>
+        </div>
+        <div class="verdict-section">
+          <p class="section-label">Veredito</p>
+          <p class="verdict-text" id="result-verdict">Veredito</p>
+        </div>
+      </div>
+
+      <div class="sentence-section">
+        <p class="section-label">Sentença</p>
+        <p class="sentence-text" id="result-sentence">Sentença</p>
+      </div>
+
+      <div class="metrics-grid">
+        <div class="metric-item">
+          <span class="metric-title">Chance de conversa paralela no whats</span>
+          <span class="metric-value" id="metric-instagram">0%</span>
+          <span class="metric-subtext">Alguém já digitou "estão vendo isso também?" no grupo sem o chefe.</span>
+        </div>
+        <div class="metric-item">
+          <span class="metric-title">Chance de virar e-mail</span>
+          <span class="metric-value" id="metric-email">0%</span>
+          <span class="metric-subtext">Essa reunião já nasceu no inbox.</span>
+        </div>
+        <div class="metric-item">
+          <span class="metric-title">Chance de fingir que entendeu</span>
+          <span class="metric-value" id="metric-buzzword">0%</span>
+          <span class="metric-subtext">Jargão alto, foco baixo.</span>
+        </div>
+        <div class="metric-item">
+          <span class="metric-title">Chance de metade não precisar estar aqui</span>
+          <span class="metric-value" id="metric-suffering">0%</span>
+          <span class="metric-subtext">Metade da sala podia estar no café.</span>
+        </div>
+      </div>
+
+      <div class="narrative-block">
+        <p class="narrative-line" id="narrative-accusation"></p>
+        <p class="narrative-line" id="narrative-evidence"></p>
+        <p class="narrative-line narrative-punchline" id="narrative-punchline"></p>
+      </div>
+
+      <div class="result-actions">
+        <button type="button" class="secondary-button" id="share-button">🔗 Compartilhar julgamento</button>
+        <button type="button" class="secondary-button" id="download-button">⬇️ Baixar card do julgamento</button>
+        <button type="button" class="secondary-button" id="reset-button">🔄 Julgar outra reunião</button>
+      </div>
+    </section>
+
+    <section class="card cta-card hidden" id="cta-card" data-html2canvas-ignore="true">
+      <a id="cta-link" class="cta-card-link" href="https://pautacerta.com.br" target="_blank" rel="noopener noreferrer">
+        <div class="cta-copy">
+          <p class="cta-line">Transforme veredictos em reuniões melhores</p>
+          <p class="cta-line cta-line-strong">O Pauta Certa ajuda equipes a criarem reuniões que não acabam no Tribunal.</p>
+        </div>
+        <span class="cta-button">Conheça o Pauta Certa</span>
+      </a>
+    </section>
+  </main>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
